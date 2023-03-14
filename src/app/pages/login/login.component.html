@@ -1,0 +1,46 @@
+<div class="w-screen h-screen bg-gray-50 relative">
+    <div class="w-full h-full absolute opacity-0 md:opacity-100">
+        <img class="w-96 absolute left-0 bottom-0" src="../../../assets/img/svg/login/login-bg-left.svg" alt="bg left">
+        <img class="w-96 absolute right-0 bottom-0" src="../../../assets/img/svg/login/login-bg-rigth.svg" alt="bg right">
+    </div>
+
+    <div class="relative w-3/4 m-auto md:w-3/12">
+        <header class="pt-8 pb-2 flex justify-center">
+            <img class="w-48 mb-8 md:w-56" src="../../../assets/img/svg/icons/logo-gradient-blue-trello.svg" alt="">
+        </header>
+
+        <div class="bg-white rounded shadow py-6 px-12 text-center">
+            <h2 class="font-semibold py-4">Iniciar sesiòn en Trello</h2>
+            <form novalidate class="space-y-4" [formGroup]="formLogin" (ngSubmit)="login()">
+                <input type="email" class="w-full px-2 rounded border-2 border-gray-300" placeholder="Introduzca el correo electrònico" [disabled]="showPasswordInput" [ngClass]="showPasswordInput ? 'border-none' : ''" formControlName="email">
+                <input *ngIf="showPasswordInput" type="password" class="w-full px-2 rounded border-2 border-gray-300" placeholder="Introduzca contraseña" formControlName="password">
+                <app-button [colorBtn]="!showPasswordInput ? 'success' : 'primary'" [typeBtn]="'submit'">{{buttonText}}</app-button>
+            </form>
+            <div class="border-b border-gray-400 my-6"></div>
+            <div class="flex flex-col items-center">
+                <a class="text-blue-600 my-2 text-xs cursor-pointer">¿No puede iniciar sesión?</a>
+                <a class="text-blue-600 my-2 text-xs cursor-pointer pl-4 flex items-center"><div class="w-1 h-1 bg-gray-600 rounded-full mr-2"></div>Regístrese para crear una cuenta</a>
+            </div>
+        </div>
+
+        
+        <div class="flex justify-center items-center pt-4">
+            <a class="text-blue-600 my-2 text-xs cursor-pointer">Política de Privacidad</a>
+            <span class="w-1 h-1 bg-gray-600 rounded-full mx-2"></span>
+            <a class="text-blue-600 my-2 text-xs cursor-pointer">Condiciones del Servicio</a>
+        </div>
+    </div>
+
+    
+    <footer class="w-full flex flex-col items-center absolute bottom-0 py-4">
+        <select class="text-gray-400 border-gray-300 w-36 mb-4 px-1 py-2 text-sm">
+            <option class="text-gray-600" *ngFor="let language of languageList" [value]="language.id">{{language.title}}</option>
+        </select>
+        <div class="border-b w-3/4 border-gray-400 my-6 md:w-3/12"></div>
+        <img src="../../../assets/img/svg/icons/horizontal-logo-onecolor-blue-atlassian.svg" alt="logo atlassian" class="w-36 mb-3">
+        <div class="flex flex-wrap w-3/4 justify-around my-2 md:w-2/5">
+            <p *ngFor="let item of menuList" class="text-sm text-gray-600">{{item}}</p>
+        </div>
+    </footer>
+
+</div>
