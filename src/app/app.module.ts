@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './shared/components/button/button.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { BoardsComponent } from './pages/boards/boards.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ButtonComponent
+    ButtonComponent,
+    NavbarComponent,
+    BoardsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OverlayModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
